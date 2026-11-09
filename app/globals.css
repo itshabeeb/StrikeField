@@ -43,3 +43,64 @@ input[type=range] { width:100%; margin:17px 0 5px; accent-color:var(--cyan); cur
 @media (max-width:700px) { .control-room { padding:15px 10px 26px; } .system-state { display:none; } .export-button { margin-left:auto; } .mission-coordinate { display:none; } .location-heading { align-items:flex-start; flex-direction:column; } .location-readouts { grid-template-columns:1fr 1fr; } .simulation-layout { display:block; } .instrument-rail { display:grid; grid-template-columns:1fr 1fr; border-right:0; border-bottom:1px solid #173b58; } .rail-section { padding:16px; } .rail-footer { display:none; } .telemetry-rail { grid-template-columns:1fr 1fr; } .readout { padding:16px 13px; } .stage-head { align-items:flex-start; gap:10px; } .stage-actions { align-items:flex-end; flex-direction:column; } .simulation-canvas,.simulation-canvas svg { min-height:370px; } .trace-track { overflow-x:auto; justify-content:flex-start; padding-bottom:5px; } .trace-arrow { flex:none; } .legend-note { width:100%; margin-left:0; } .simulation-command { align-items:flex-start; flex-direction:column; } .timeline-results { grid-template-columns:1fr 1fr; } .lab-layout { grid-template-columns:1fr; } .lab-canvas { height:430px; } .report-grid { grid-template-columns:1fr; } .formula-steps,.advice-grid { grid-template-columns:1fr; } .term-guide { grid-template-columns:1fr; } }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
 @media print { .control-room { background:#fff; color:#10233f; } .export-button,.instrument-rail,.simulate-button,.radar-sweep,.scanlines { display:none; } .simulation-layout { display:block; } .telemetry-rail { display:grid; grid-template-columns:repeat(4,1fr); } }
+
+/* Readability layer: preserve the control-room aesthetic without sacrificing comprehension. */
+.micro-label { font-size:12px; letter-spacing:.1em; }
+.nav-tab { font-size:13px; text-transform:none; }
+.system-state,.mission-line { font-size:13px; }
+.platform-heading h2 { font-size:32px; }
+.platform-heading p,.location-heading p,.location-brief { font-size:16px; line-height:1.55; }
+.location-heading h2 { font-size:28px; }
+.location-readouts span { font-size:12px; padding:15px 10px; }
+.location-readouts b { font-size:16px; }
+.location-button,.export-button,.simulate-button { font-size:12px; }
+.instrument-label { font-size:12px; letter-spacing:.07em; }
+.rail-section { padding:28px 22px 24px; }
+.telemetry-value b { font-size:40px; }
+.stage-head h2 { font-size:24px; }
+.canvas-callout { font-size:12px; }
+.canvas-callout b { font-size:16px; }
+.stage-legend { font-size:12px; }
+.readout p,.readout small,.disclaimer { font-size:14px; line-height:1.5; }
+.readout strong,.readout-number { font-size:32px; }
+.readout strong small,.readout-number small { font-size:13px; }
+.trace-item strong { font-size:13px; letter-spacing:.05em; }
+.trace-item small { font-size:14px; line-height:1.4; }
+.console-title p { font-size:16px; }
+.education-heading h2,.advisor-module h2 { font-size:28px; }
+.education-heading p,.education-module p,.advisor-module p { font-size:16px; line-height:1.6; }
+.formula-step { min-height:245px; padding:22px 18px 18px 46px; }
+.formula-step strong { font-size:16px; }
+.formula-step code { font-size:14px; line-height:1.6; }
+.formula-step p,.term-guide span { font-size:14px; line-height:1.65; }
+.term-guide { gap:18px; }
+.explain-toggle { margin-top:14px; }
+.explain-toggle > button { border:0; padding:0; color:#64d9f5; background:transparent; font-size:14px; cursor:pointer; }
+.explain-toggle > button span { display:inline-grid; place-items:center; width:20px; height:20px; margin-left:5px; border:1px solid #34718a; border-radius:50%; }
+.explain-content { margin-top:10px; padding:12px; border-left:2px solid var(--cyan); color:#a5c3d1; background:#0b263c; font-size:14px; line-height:1.6; }
+.explain-content strong { display:block; margin-bottom:4px; color:#e4f7ff; font-size:15px; }
+.advisor-module { max-width:1600px; margin:18px auto 0; padding:25px; border:1px solid #1e4b68; background:#081a2b; }
+.advisor-module h2 { margin-top:7px; color:#dcecff; font-weight:400; }
+.advisor-content { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:22px; }
+.contribution { display:grid; grid-template-columns:1fr 65px; gap:12px; margin-bottom:17px; }
+.contribution b,.contribution small { display:block; }
+.contribution b { color:#e1f4fc; font-size:16px; }
+.contribution small { margin-top:4px; color:#82a2b4; font-size:14px; }
+.contribution strong { color:#ffc45b; font-size:20px; text-align:right; }
+.contribution i { grid-column:1 / -1; height:8px; border-radius:5px; background:#102f45; overflow:hidden; }
+.contribution i span { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,#159dbe,#ffc45b); }
+.advisor-actions { padding-left:22px; border-left:1px solid #173b58; }
+.action-row { margin-top:13px; color:#b3cedb; font-size:15px; line-height:1.4; }
+.action-row span { display:inline-grid; place-items:center; width:22px; height:22px; margin-right:8px; border-radius:50%; color:#061426; background:#49dda0; font-weight:bold; }
+.what-if { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:22px; padding-top:16px; border-top:1px solid #173b58; color:#6f94aa; font-size:13px; }
+.what-if b { grid-column:1 / -1; color:#ffc45b; font-size:12px; letter-spacing:.08em; }
+.what-if span { padding:10px; background:#0a2136; }
+.what-if strong { display:block; margin-top:4px; color:#e2f6ff; font-size:22px; font-weight:400; }
+.academy-page { max-width:1600px; margin:0 auto; }
+.academy-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.lesson { padding:22px; border:1px solid #1e4b68; background:#081a2b; }
+.lesson-visual { display:grid; place-items:center; width:70px; height:60px; margin-bottom:20px; border:1px solid #2a8099; color:var(--cyan); background:#0b2a40; font-size:24px; }
+.lesson h3 { margin:8px 0 7px; color:#e1f4fc; font-size:22px; font-weight:400; }
+.lesson > p { min-height:50px; color:#86a4b4; font-size:16px; line-height:1.5; }
+@media (max-width:900px) { .academy-grid { grid-template-columns:1fr 1fr; } .advisor-content { grid-template-columns:1fr; } .advisor-actions { padding:0; border-left:0; border-top:1px solid #173b58; padding-top:18px; } }
+@media (max-width:700px) { .academy-grid { grid-template-columns:1fr; } .formula-steps { grid-template-columns:1fr; } .formula-step { min-height:0; } .location-readouts b { font-size:14px; } .what-if { grid-template-columns:1fr 1fr; } }
