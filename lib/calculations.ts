@@ -77,3 +77,19 @@ export function estimateStormPotential(latitude: number) {
   }
   return { label: "Low", score: 20, explanation: "Cold, dry conditions generally provide less support for tropical development." };
 }
+
+export function samplePoisson(lambda: number): number {
+  if (lambda <= 0) return 0;
+  const threshold = Math.exp(-lambda);
+  let product = 1;
+  let events = 0;
+  do {
+    events += 1;
+    product *= Math.random();
+  } while (product > threshold);
+  return events - 1;
+}
+
+export function simulatePoissonYears(expectedPerYear: number, years: number): number[] {
+  return Array.from({ length: years }, () => samplePoisson(expectedPerYear));
+}
